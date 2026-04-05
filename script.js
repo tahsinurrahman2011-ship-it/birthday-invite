@@ -1,38 +1,31 @@
 // Function to trigger entrance animations
 function animateCards(targetId) {
-    // We are creating a MASTER TIMELINE so we can add deliberate delays.
     const tl = gsap.timeline();
 
     if (targetId === 'home') {
-        // Initial delay when the website opens to let the background load.
-        tl.to({}, { duration: 0.5 }); 
-        
-        // 1. Deliberate Squeeze-Top: Photo Banner drops down slowly.
-        // We've increased 'duration' to slow it down.
+        // 1. Deliberate Squeeze-Top
         tl.fromTo(".squeeze-top",
             { y: -150, opacity: 0 },
             { y: 0, opacity: 1, duration: 1.5, ease: "back.out(1.2)", clearProps: "transform" }
         );
         
-        // Short pause between elements.
-        tl.to({}, { duration: 0.3 }); 
+        tl.to({}, { duration: 0.3 }); // Pause
         
-        // 2. Deliberate Squeeze-Middle: Title card drops down.
+        // 2. Deliberate Squeeze-Middle
         tl.fromTo(".squeeze-middle",
             { y: -150, opacity: 0 },
             { y: 0, opacity: 1, duration: 1.5, ease: "back.out(1.2)", clearProps: "transform" }
         );
         
-        // Final pause.
-        tl.to({}, { duration: 0.3 }); 
+        tl.to({}, { duration: 0.3 }); // Pause
         
-        // 3. Deliberate Squeeze-Bottom: Note card rises up.
+        // 3. Deliberate Squeeze-Bottom
         tl.fromTo(".squeeze-bottom",
             { y: 150, opacity: 0 },
             { y: 0, opacity: 1, duration: 1.5, ease: "back.out(1.2)", clearProps: "transform" }
         );
     } else {
-        // Default clean slide-up animation for all other pages
+        // Default clean slide-up animation for other pages
         tl.fromTo(`#${targetId} .animate-card`, 
             { y: 40, opacity: 0 }, 
             { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: "power2.out", clearProps: "transform" }
@@ -40,13 +33,39 @@ function animateCards(targetId) {
     }
 }
 
+// Handle Page Load & RSVP Modal Expiration Logic
+window.addEventListener('load', () => {
+    const modal = document.getElementById('rsvp-modal');
+    const closeBtn = document.getElementById('close-modal');
+    
+    // Stop displaying modal when it becomes May 10, 2026 (midnight after May 9th)
+    const expiryDate = new Date("May 10, 2026 00:00:00").getTime();
+
+    if (new Date().getTime() < expiryDate) {
+        // Active Modal - Show it and wait to animate Home Page
+        modal.style.display = 'flex';
+        gsap.to(modal, { opacity: 1, duration: 0.5 });
+        gsap.fromTo(".modal-content", { scale: 0.8 }, { scale: 1, duration: 0.5, ease: "back.out(1.2)" });
+
+        closeBtn.addEventListener('click', () => {
+            // Fade out modal and immediately start cinematic squeeze
+            gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: () => {
+                modal.style.display = 'none';
+                animateCards('home'); 
+            }});
+        });
+    } else {
+        // Expired Modal - Play cinematic squeeze immediately upon load
+        animateCards('home');
+    }
+});
+
 // App Navigation Logic
 const navButtons = document.querySelectorAll('.nav-item');
 const pages = document.querySelectorAll('.app-page');
 
 navButtons.forEach(button => {
     button.addEventListener('click', () => {
-        // Switch Active States
         navButtons.forEach(btn => btn.classList.remove('active'));
         pages.forEach(page => page.classList.remove('active-page'));
 
@@ -56,15 +75,9 @@ navButtons.forEach(button => {
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
-        // Trigger the specific animation for the clicked page
+        // Trigger specific animation for clicked page
         animateCards(targetId);
     });
-});
-
-// Run animation on initial load
-window.addEventListener('load', () => {
-    // On load, we specifically trigger the 'home' animation logic
-    animateCards('home');
 });
 
 // Initialize Premium Swiper 3D Cards
