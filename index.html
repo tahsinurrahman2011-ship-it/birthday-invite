@@ -2,78 +2,92 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yasir's First Lap!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-    <div class="background-container">
-        <img src="background.png" class="background-art" alt="Whimsical Racing Sky">
+    <div class="sky-background">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
     </div>
 
-    <main>
-        <section id="hero" class="drift-in">
-            <h2 class="typewriter">THIS YEAR WAS A Fast One...</h2>
-            <h1>Join us to celebrate Yasir's First Lap AROUND THE TRACK!</h1>
-            
-            <div id="countdown" class="countdown-timer"></div>
-            
-            <div class="host-message-block">
+    <nav class="app-nav">
+        <button class="nav-item active" data-target="home"><i class="fa-solid fa-flag-checkered"></i><span>Start</span></button>
+        <button class="nav-item" data-target="gallery"><i class="fa-solid fa-camera-retro"></i><span>Gallery</span></button>
+        <button class="nav-item" data-target="info"><i class="fa-solid fa-map-location-dot"></i><span>Details</span></button>
+        <button class="nav-item" data-target="rsvp"><i class="fa-solid fa-envelope-open-text"></i><span>RSVP</span></button>
+    </nav>
+
+    <main class="app-container">
+
+        <section id="home" class="app-page active-page">
+            <div class="glass-card hero-card">
+                <h2 class="subtitle">This year was a fast one...</h2>
+                <h1 class="title">Yasir's First Lap</h1>
+                <div class="checkered-divider"></div>
+                <div id="countdown" class="countdown"></div>
+            </div>
+
+            <div class="glass-card message-card">
                 <h3>A Note from the Pit Crew</h3>
                 <p>Welcome to our celebration! Our little Yasir is turning one, and we've loved every minute of this fast-paced adventure. Your presence is the only gift we need, and we can't wait to share his big mile-marker with you!</p>
             </div>
         </section>
 
-        <section id="details" class="drift-in">
-            <div class="grid-container">
-                <div class="info-card logistics">
-                    <h2>The Starting Grid</h2>
-                    <p><strong>Date:</strong> SATURDAY MAY 9TH</p>
-                    <p><strong>Time:</strong> 7:00 PM - 10:30 PM</p>
-                    <p><strong>Location:</strong> KIRIP CENTER</p>
-                    <p>135 DE ROSSI BLVD, WOLLERT</p>
-                    
-                    <div class="map-container">
-                        <iframe src="https://maps.google.com/maps?q=135%20De%20Rossi%20Blvd,%20Wollert&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
-
-                <div class="info-card rsvp-form">
-                    <h2>RSVP & Messages</h2>
-                    <p>Please RSVP by May 1st!</p>
-                    
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScUpC0IVFFCXXtxxJh6AeiCHLI0-HbjHI-yIQa-qyBwWjJUkA/viewform?embedded=true" width="100%" height="1029" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                </div>
-            </div>
-        </section>
-
-        <section id="memory-lane" class="drift-in">
-            <h2>Yasir's Memory Lane</h2>
-            <div class="photo-grid provided-photos">
-                <div class="photo-frame"><img src="family-portrait.jpg" alt="Family Portrait"></div>
-                <div class="photo-frame"><img src="dad-and-baby.jpg" alt="Dad and Baby Yasir"></div>
-                <div class="photo-frame"><img src="yasir-high-chair.jpg" alt="Yasir Milestone"></div>
-            </div>
-        </section>
-
-        <section id="photo-hub" class="drift-in">
-            <div class="info-card hub-card">
-                <h2>Live Event Photo Hub</h2>
-                <p>Help us capture the memories! Upload your snaps here and view everyone else's photos instantly.</p>
+        <section id="gallery" class="app-page">
+            <div class="glass-card">
+                <h2 class="page-title">Memory Lane</h2>
+                <p class="instruction">Swipe to view Yasir's journey!</p>
                 
-                <div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://padlet.com/embed/eh6pgm1da64h8xdy" frameborder="0" allow="camera;microphone;geolocation;display-capture;clipboard-write" style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="display:flex;align-items:center;justify-content:end;margin:0;padding:8px 8px 8px 0"><a href="https://padlet.com?ref=embed" style="display:flex;align-items:center;gap:5px;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none" target="_blank"><span aria-hidden style="color:#9E9E9E;font-size:10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;line-height:1">Made with</span><img src="https://padlet.net/emails/padlet_email_logo_2026_text-dark-200.png" height="12" style="padding:0;margin:0;background:0 0;border:none;box-shadow:none;display:block" alt="Made with Padlet"></a></div></div>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="family-portrait.jpg" alt="Family"></div>
+                        <div class="swiper-slide"><img src="dad-and-baby.jpg" alt="Dad and Yasir"></div>
+                        <div class="swiper-slide"><img src="yasir-high-chair.jpg" alt="Yasir High Chair"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="glass-card padlet-container">
+                <h3>Live Event Photo Hub</h3>
+                <p>Upload your snaps here!</p>
+                <iframe src="https://padlet.com/embed/eh6pgm1da64h8xdy" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:400px;border-radius:15px;"></iframe>
             </div>
         </section>
 
-        <footer style="text-align: center; margin-top: 50px;">
-            <a href="admin.html" style="color: transparent; text-decoration: none;">Admin</a>
-        </footer>
+        <section id="info" class="app-page">
+            <div class="glass-card">
+                <h2 class="page-title">The Starting Grid</h2>
+                <div class="info-list">
+                    <p><i class="fa-regular fa-calendar-days"></i> <strong>SATURDAY MAY 9TH</strong></p>
+                    <p><i class="fa-regular fa-clock"></i> <strong>7:00 PM - 10:30 PM</strong></p>
+                    <p><i class="fa-solid fa-location-dot"></i> <strong>KIRIP CENTER</strong><br>135 De Rossi Blvd, Wollert</p>
+                </div>
+                <iframe src="https://maps.google.com/maps?q=135%20De%20Rossi%20Blvd,%20Wollert&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border:0; border-radius: 15px; margin-top: 15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <section id="rsvp" class="app-page">
+            <div class="glass-card form-container">
+                <h2 class="page-title">RSVP & Messages</h2>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScUpC0IVFFCXXtxxJh6AeiCHLI0-HbjHI-yIQa-qyBwWjJUkA/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </section>
+
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
