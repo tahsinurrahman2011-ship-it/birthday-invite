@@ -7,26 +7,17 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
     <div class="sky-background">
-        <div class="cloud cloud1"></div>
-        <div class="cloud cloud2"></div>
-        <div class="cloud cloud3"></div>
-        
-        <div class="balloon balloon1"></div>
-        <div class="balloon balloon2"></div>
-        <div class="balloon balloon3"></div>
-        <div class="balloon balloon4"></div>
-
-        <div class="race-car">🏎️</div>
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
     </div>
 
     <nav class="app-nav">
@@ -39,23 +30,23 @@
     <main class="app-container">
 
         <section id="home" class="app-page active-page">
-            <div class="glass-card hero-card" style="position: relative; z-index: 10;">
+            <div class="glass-card hero-card animate-card">
                 <h2 class="subtitle">This year was a fast one...</h2>
                 <h1 class="title">Yasir's First Lap</h1>
                 <div class="checkered-divider"></div>
                 <div id="countdown" class="countdown"></div>
             </div>
 
-            <div class="glass-card message-card" style="position: relative; z-index: 10;">
+            <div class="glass-card message-card animate-card">
                 <h3>A Note from the Pit Crew</h3>
                 <p>Welcome to our celebration! Our little Yasir is turning one, and we've loved every minute of this fast-paced adventure. Your presence is the only gift we need, and we can't wait to share his big mile-marker with you!</p>
             </div>
         </section>
 
         <section id="gallery" class="app-page">
-            <div class="glass-card">
+            <div class="glass-card animate-card">
                 <h2 class="page-title">Memory Lane</h2>
-                <p class="instruction" style="color: #64748b; font-size: 0.9rem; margin-bottom: 10px;">Swipe to view Yasir's journey!</p>
+                <p class="instruction">Swipe to view Yasir's journey!</p>
                 
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
@@ -74,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="glass-card padlet-container">
+            <div class="glass-card padlet-container animate-card">
                 <h3>Live Event Photo Hub</h3>
                 <p>Upload your snaps here!</p>
                 <iframe src="https://padlet.com/embed/eh6pgm1da64h8xdy" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:400px;border-radius:15px;"></iframe>
@@ -82,7 +73,7 @@
         </section>
 
         <section id="info" class="app-page">
-            <div class="glass-card">
+            <div class="glass-card animate-card">
                 <h2 class="page-title">The Starting Grid</h2>
                 <div class="info-list" style="text-align: left; margin: 20px auto; max-width: 300px;">
                     <p style="margin-bottom: 15px;"><i class="fa-regular fa-calendar-days" style="color: #7baedb; margin-right: 10px; width: 20px;"></i> <strong>SATURDAY MAY 9TH</strong></p>
@@ -94,7 +85,7 @@
         </section>
 
         <section id="rsvp" class="app-page">
-            <div class="glass-card form-container" style="padding: 10px;">
+            <div class="glass-card form-container animate-card" style="padding: 10px;">
                 <h2 class="page-title" style="margin-top: 15px;">RSVP & Messages</h2>
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScUpC0IVFFCXXtxxJh6AeiCHLI0-HbjHI-yIQa-qyBwWjJUkA/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
