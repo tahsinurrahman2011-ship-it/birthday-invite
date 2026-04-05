@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -19,6 +20,13 @@
         <div class="cloud cloud1"></div>
         <div class="cloud cloud2"></div>
         <div class="cloud cloud3"></div>
+        
+        <div class="balloon balloon1"></div>
+        <div class="balloon balloon2"></div>
+        <div class="balloon balloon3"></div>
+        <div class="balloon balloon4"></div>
+
+        <div class="race-car">🏎️</div>
     </div>
 
     <nav class="app-nav">
@@ -31,14 +39,14 @@
     <main class="app-container">
 
         <section id="home" class="app-page active-page">
-            <div class="glass-card hero-card">
+            <div class="glass-card hero-card" style="position: relative; z-index: 10;">
                 <h2 class="subtitle">This year was a fast one...</h2>
                 <h1 class="title">Yasir's First Lap</h1>
                 <div class="checkered-divider"></div>
                 <div id="countdown" class="countdown"></div>
             </div>
 
-            <div class="glass-card message-card">
+            <div class="glass-card message-card" style="position: relative; z-index: 10;">
                 <h3>A Note from the Pit Crew</h3>
                 <p>Welcome to our celebration! Our little Yasir is turning one, and we've loved every minute of this fast-paced adventure. Your presence is the only gift we need, and we can't wait to share his big mile-marker with you!</p>
             </div>
