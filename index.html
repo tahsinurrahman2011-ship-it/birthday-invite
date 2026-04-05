@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasir's First Lap!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <div class="background-container">
+        <img src="background.png" class="background-art" alt="Whimsical Racing Sky">
+    </div>
+
+    <main>
+        <section id="hero" class="drift-in">
+            <h2 class="typewriter">THIS YEAR WAS A Fast One...</h2>
+            <h1>Join us to celebrate Yasir's First Lap AROUND THE TRACK!</h1>
+            
+            <div id="countdown" class="countdown-timer"></div>
+            
+            <div class="host-message-block">
+                <h3>A Note from the Pit Crew</h3>
+                <p>Welcome to our celebration! Our little Yasir is turning one, and we've loved every minute of this fast-paced adventure. Your presence is the only gift we need, and we can't wait to share his big mile-marker with you!</p>
+            </div>
+        </section>
+
+        <section id="details" class="drift-in">
+            <div class="grid-container">
+                <div class="info-card logistics">
+                    <h2>The Starting Grid</h2>
+                    <p><strong>Date:</strong> SATURDAY MAY 9TH</p>
+                    <p><strong>Time:</strong> 7:00 PM - 10:30 PM</p>
+                    <p><strong>Location:</strong> KIRIP CENTER</p>
+                    <p>135 DE ROSSI BLVD, WOLLERT</p>
+                    
+                    <div class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=135%20De%20Rossi%20Blvd,%20Wollert&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="info-card rsvp-form">
+                    <h2>RSVP & Messages</h2>
+                    <p>Please RSVP by May 1st!</p>
+                    
+                    <iframe src="YOUR_GOOGLE_FORM_URL/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading RSVP Form...</iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="memory-lane" class="drift-in">
+            <h2>Yasir's Memory Lane</h2>
+            <div class="photo-grid provided-photos">
+                <div class="photo-frame"><img src="family-portrait.jpg" alt="Family Portrait"></div>
+                <div class="photo-frame"><img src="dad-and-baby.jpg" alt="Dad and Baby Yasir"></div>
+                <div class="photo-frame"><img src="yasir-high-chair.jpg" alt="Yasir Milestone"></div>
+            </div>
+        </section>
+
+        <section id="photo-hub" class="drift-in">
+            <div class="info-card hub-card">
+                <h2>Live Event Photo Hub</h2>
+                <p>Help us capture the memories! Upload your snaps here and view everyone else's photos instantly.</p>
+                
+                <div class="embed-placeholder">
+                    <p>[Your Photo Gallery Widget Goes Here]</p>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 50px;">
+            <a href="admin.html" style="color: transparent; text-decoration: none;">Admin</a>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
