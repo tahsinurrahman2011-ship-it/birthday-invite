@@ -74,24 +74,6 @@ body {
     100% { transform: translateX(120vw); opacity: 0; }
 }
 
-/* --- NEW: CINEMATIC START PAGE BACKGROUND --- */
-.home-bg-photo {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: url('photo7.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: 0; /* Behind the glass cards */
-    opacity: 0; /* GSAP will fade this in */
-}
-
-/* Soft frosted overlay so the text remains easy to read */
-.home-bg-overlay {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: linear-gradient(135deg, rgba(224, 242, 254, 0.4) 0%, rgba(189, 224, 254, 0.8) 100%);
-    z-index: 1; 
-    opacity: 0; /* GSAP will fade this in */
-}
-
 /* App Layout */
 .app-container { padding: 20px; padding-bottom: 100px; max-width: 600px; margin: 0 auto; }
 .app-page { display: none; }
@@ -110,6 +92,20 @@ body {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-8px); }
     100% { transform: translateY(0px); }
+}
+
+/* --- NEW: The Frosted Photo Banner --- */
+.home-photo-banner {
+    padding: 10px; /* Small inner padding */
+    width: 100%;
+    height: 300px; /* Elegant banner height */
+}
+
+.home-photo-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers banner without stretching */
+    border-radius: 18px; /* Slightly tighter border inside the glass frame */
 }
 
 /* Typography */
