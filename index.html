@@ -22,7 +22,6 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 
@@ -34,15 +33,11 @@
         <div class="orb orb1"></div>
         <div class="orb orb2"></div>
         <div class="orb orb3"></div>
-
         <div class="glass-balloon gb1"></div>
         <div class="glass-balloon gb2"></div>
         <div class="glass-balloon gb3"></div>
         <div class="glass-balloon gb4"></div>
-
-        <div class="ghost-car">
-            <i class="fa-solid fa-car-side"></i>
-        </div>
+        <div class="ghost-car"><i class="fa-solid fa-car-side"></i></div>
     </div>
 
     <nav class="app-nav">
@@ -55,14 +50,17 @@
     <main class="app-container">
 
         <section id="home" class="app-page active-page">
-            <div class="glass-card hero-card animate-card">
+            <div class="home-bg-photo"></div>
+            <div class="home-bg-overlay"></div>
+
+            <div class="glass-card hero-card squeeze-top" style="position: relative; z-index: 10;">
                 <h2 class="subtitle">This year was a fast one...</h2>
                 <h1 class="title">Yasir's First Lap</h1>
                 <div class="checkered-divider"></div>
                 <div id="countdown" class="countdown"></div>
             </div>
 
-            <div class="glass-card message-card animate-card">
+            <div class="glass-card message-card squeeze-bottom" style="position: relative; z-index: 10;">
                 <h3>A Note from the Pit Crew</h3>
                 <p>Welcome to our celebration! Our little Yasir is turning one, and we've loved every minute of this fast-paced adventure. Your presence is the only gift we need, and we can't wait to share his big mile-marker with you!</p>
             </div>
@@ -72,7 +70,6 @@
             <div class="glass-card animate-card">
                 <h2 class="page-title">Memory Lane</h2>
                 <p class="instruction">Swipe to view Yasir's journey!</p>
-                
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="photo1.jpg" alt="Family"></div>
