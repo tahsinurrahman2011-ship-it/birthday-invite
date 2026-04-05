@@ -1,122 +1,64 @@
-:root {
-    --light-blue: #e0f2fe;
-    --primary-blue: #7baedb;
-    --dark-text: #1e293b;
-}
+/* --- NEW AESTHETIC BACKGROUND ANIMATIONS --- */
 
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }
-
-body {
-    background-color: var(--light-blue);
-    color: var(--dark-text);
-    overflow-x: hidden;
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Elegant CSS Background with Soft Glowing Orbs for "Pop of Color" */
-.sky-background {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
-    background: linear-gradient(135deg, #e0f2fe 0%, #bde0fe 100%);
-    overflow: hidden;
-}
-
-.orb {
+/* 1. Elegant Glass Balloons */
+.glass-balloon {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.4;
-    animation: drift 20s infinite alternate ease-in-out;
+    bottom: -100px;
+    width: 45px;
+    height: 55px;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    /* Frosted glass effect for balloons */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset -5px -5px 15px rgba(255,255,255,0.7), 0 4px 10px rgba(0,0,0,0.05);
+    animation: aestheticFloat 16s linear infinite;
+    z-index: 1;
 }
 
-.orb1 { width: 300px; height: 300px; background: #ffb6b9; top: -10%; left: -10%; } /* Soft Pastel Pink */
-.orb2 { width: 250px; height: 250px; background: #fdfd96; bottom: 20%; right: -5%; animation-duration: 25s; } /* Soft Pastel Yellow */
-.orb3 { width: 200px; height: 200px; background: #84b6f4; top: 40%; left: 40%; animation-duration: 30s; } /* Deep Pastel Blue */
-
-@keyframes drift {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(50px, 50px) scale(1.1); }
+/* Elegant little balloon string */
+.glass-balloon::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.6);
 }
 
-/* App Structure */
-.app-container {
-    padding: 20px;
-    padding-bottom: 100px;
-    max-width: 600px;
-    margin: 0 auto;
+/* Subtle pastel tints & staggered timings */
+.gb1 { left: 15%; animation-duration: 18s; animation-delay: 0s; background: rgba(255, 182, 185, 0.3); } /* Hint of Pink */
+.gb2 { left: 80%; animation-duration: 22s; animation-delay: 4s; background: rgba(253, 253, 150, 0.3); } /* Hint of Yellow */
+.gb3 { left: 40%; animation-duration: 19s; animation-delay: 8s; background: rgba(132, 182, 244, 0.3); } /* Hint of Blue */
+.gb4 { left: 65%; animation-duration: 25s; animation-delay: 2s; background: rgba(152, 255, 152, 0.3); } /* Hint of Mint */
+
+@keyframes aestheticFloat {
+    0% { transform: translateY(0) rotate(-5deg); opacity: 0; }
+    10% { opacity: 1; }
+    50% { transform: translateY(-50vh) rotate(5deg); }
+    90% { opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(-5deg); opacity: 0; }
 }
 
-.app-page { display: none; }
-.app-page.active-page { display: block; }
-
-/* Premium Glass Cards with Subtle Floating Animation */
-.glass-card {
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: 24px;
-    padding: 30px 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    animation: floatCard 6s infinite ease-in-out;
+/* 2. Sleek Silhouette Race Car */
+.ghost-car {
+    position: absolute;
+    bottom: 18%; /* Drives right behind the text cards */
+    left: -150px;
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, 0.8); /* Elegant solid white frosted look */
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
+    animation: aestheticZoom 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    z-index: 1;
 }
 
-/* Delays so they don't all float exactly at the same time */
-.glass-card:nth-child(2) { animation-delay: 1s; }
-
-@keyframes floatCard {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
-}
-
-/* Typography */
-.subtitle { font-family: 'Caveat', cursive; font-size: 2.2rem; color: #64748b; font-weight: 600; margin-bottom: -10px; }
-.title { font-family: 'Pacifico', cursive; font-size: 3rem; color: var(--primary-blue); text-shadow: 2px 2px 0px white; line-height: 1.2; }
-.page-title { font-family: 'Pacifico', cursive; font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px; }
-h3 { font-family: 'Pacifico', cursive; font-size: 1.8rem; color: var(--primary-blue); margin-bottom: 10px; }
-p { font-size: 1.1rem; line-height: 1.6; color: var(--dark-text); }
-.instruction { color: #64748b; font-size: 0.9rem; margin-bottom: 10px; }
-
-.checkered-divider {
-    height: 15px; width: 100%; margin: 20px 0;
-    background-image: linear-gradient(45deg, #cbd5e1 25%, transparent 25%, transparent 75%, #cbd5e1 75%, #cbd5e1), 
-                      linear-gradient(45deg, #cbd5e1 25%, transparent 25%, transparent 75%, #cbd5e1 75%, #cbd5e1);
-    background-size: 20px 20px; background-position: 0 0, 10px 10px; opacity: 0.4; border-radius: 10px;
-}
-
-.countdown { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; color: var(--primary-blue); letter-spacing: 2px; }
-
-/* Swiper Slider */
-.swiper { width: 100%; padding-top: 20px; padding-bottom: 40px; }
-.swiper-slide {
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    background: white; padding: 10px;
-}
-.swiper-slide img { width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 3/4; }
-
-/* Bottom App Navigation */
-.app-nav {
-    position: fixed; bottom: 0; left: 0; width: 100%;
-    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-around;
-    padding: 15px 10px 25px 10px; z-index: 1000;
-}
-
-.nav-item {
-    background: none; border: none; display: flex; flex-direction: column; align-items: center;
-    color: #94a3b8; font-size: 1.2rem; cursor: pointer; transition: 0.3s;
-}
-
-.nav-item span { font-size: 0.75rem; font-weight: 700; margin-top: 5px; }
-.nav-item.active { color: var(--primary-blue); transform: translateY(-5px); }
-.nav-item.active i { transform: scale(1.2); }
-
-@media (min-width: 768px) {
-    .app-container { padding-top: 100px; }
-    .app-nav { top: 0; bottom: auto; padding: 20px; border-top: none; border-bottom: 1px solid rgba(0,0,0,0.05); }
-    .nav-item { flex-direction: row; gap: 10px; font-size: 1.2rem; }
-    .nav-item span { font-size: 1rem; margin-top: 0; }
+@keyframes aestheticZoom {
+    0% { transform: translateX(-100px); opacity: 0; }
+    5% { opacity: 1; }
+    30% { transform: translateX(35vw); } /* Speeds into the middle */
+    45% { transform: translateX(35vw); } /* Pauses for a moment */
+    70% { transform: translateX(120vw); opacity: 1;} /* Speeds off screen */
+    100% { transform: translateX(120vw); opacity: 0; }
 }
