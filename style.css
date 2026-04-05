@@ -13,6 +13,9 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* FIX: Forces cards to be invisible on initial load to stop the "Flash" */
+.squeeze-top, .squeeze-middle, .squeeze-bottom { opacity: 0; }
+
 /* Elegant CSS Background */
 .sky-background {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
@@ -74,6 +77,26 @@ body {
     100% { transform: translateX(120vw); opacity: 0; }
 }
 
+/* --- RSVP POP-UP MODAL --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    display: none; justify-content: center; align-items: center;
+    z-index: 9999; padding: 20px; opacity: 0; /* JS handles fade in */
+}
+
+.modal-content {
+    position: relative; max-width: 450px; width: 100%;
+    animation: none; /* Stops the hover float so it's easy to read */
+}
+
+.close-btn {
+    position: absolute; top: 15px; right: 20px;
+    background: none; border: none; font-size: 2.2rem; line-height: 1;
+    color: var(--primary-blue); cursor: pointer; transition: 0.2s;
+}
+.close-btn:hover { color: var(--dark-text); transform: scale(1.1); }
+
 /* App Layout */
 .app-container { padding: 20px; padding-bottom: 100px; max-width: 600px; margin: 0 auto; }
 .app-page { display: none; }
@@ -94,19 +117,9 @@ body {
     100% { transform: translateY(0px); }
 }
 
-/* --- NEW: The Frosted Photo Banner --- */
-.home-photo-banner {
-    padding: 10px; /* Small inner padding */
-    width: 100%;
-    height: 300px; /* Elegant banner height */
-}
-
-.home-photo-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures image covers banner without stretching */
-    border-radius: 18px; /* Slightly tighter border inside the glass frame */
-}
+/* The Frosted Photo Banner */
+.home-photo-banner { padding: 10px; width: 100%; height: 300px; }
+.home-photo-banner img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; }
 
 /* Typography */
 .subtitle { font-family: 'Caveat', cursive; font-size: 2.2rem; color: #64748b; font-weight: 600; margin-bottom: -10px; }
