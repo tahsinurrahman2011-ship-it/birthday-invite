@@ -1,9 +1,30 @@
-// Function to trigger entrance animations
-function animateCards() {
-    gsap.fromTo(".active-page .animate-card", 
-        { y: 40, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: "power2.out" }
-    );
+// Function to trigger entrance animations based on which page is active
+function animateCards(targetId) {
+    if (targetId === 'home') {
+        // 1. Cinematic Fade-In for Photo 7 (and its readability overlay)
+        gsap.fromTo(".home-bg-photo, .home-bg-overlay", 
+            { opacity: 0 }, 
+            { opacity: 1, duration: 2, ease: "power2.inOut" }
+        );
+        
+        // 2. THE SQUEEZE: Top Card slides down from above
+        gsap.fromTo(".squeeze-top",
+            { y: -150, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.2, ease: "back.out(1.2)", delay: 0.3, clearProps: "transform" }
+        );
+        
+        // 3. THE SQUEEZE: Bottom Card slides up from below
+        gsap.fromTo(".squeeze-bottom",
+            { y: 150, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.2, ease: "back.out(1.2)", delay: 0.3, clearProps: "transform" }
+        );
+    } else {
+        // Default clean slide-up animation for all other pages
+        gsap.fromTo(`#${targetId} .animate-card`, 
+            { y: 40, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: "power2.out", clearProps: "transform" }
+        );
+    }
 }
 
 // App Navigation Logic
@@ -22,13 +43,15 @@ navButtons.forEach(button => {
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
-        // Trigger the entrance animation for the new page
-        animateCards();
+        // Trigger the specific animation for the clicked page
+        animateCards(targetId);
     });
 });
 
-// Run animation on initial load
-window.addEventListener('load', animateCards);
+// Run the cinematic squeeze animation on initial website load
+window.addEventListener('load', () => {
+    animateCards('home');
+});
 
 // Initialize Premium Swiper 3D Cards
 const swiper = new Swiper(".mySwiper", {
