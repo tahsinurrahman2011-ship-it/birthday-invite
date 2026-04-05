@@ -3,45 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Yasir's Birthday</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <title>Pit Crew Control Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { 
-            font-family: 'Caveat', cursive; 
-            background-color: #e0f2fe; 
-            padding: 50px; 
+            font-family: 'Outfit', sans-serif; 
+            background: linear-gradient(135deg, #e0f2fe 0%, #bde0fe 100%);
+            padding: 20px; 
             text-align: center; 
-            color: #334155;
-            font-size: 1.5rem;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .admin-box { 
-            background: white; 
-            padding: 50px; 
-            border-radius: 20px; 
-            display: inline-block;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(10px);
+            padding: 40px 30px; 
+            border-radius: 24px; 
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.8);
         }
-        a { 
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 30px;
-            background-color: #7baedb;
-            color: white;
+        h1 { font-family: 'Pacifico', cursive; color: #7baedb; margin-bottom: 25px; font-size: 2.5rem; }
+        .admin-btn { 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+            padding: 18px 20px;
+            background-color: white;
+            color: #334155;
             text-decoration: none;
-            border-radius: 50px;
-            font-family: sans-serif;
+            border-radius: 15px;
             font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px solid #e2e8f0;
+            transition: all 0.2s ease;
         }
+        .admin-btn:hover {
+            border-color: #7baedb;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 174, 219, 0.2);
+        }
+        .admin-btn i { font-size: 1.5rem; color: #7baedb; }
+        .instructions { font-size: 0.9rem; color: #64748b; margin-top: 25px; text-align: left; background: #f8fafc; padding: 15px; border-radius: 10px; }
+        .instructions strong { color: #1e293b; }
     </style>
 </head>
 <body>
     <div class="admin-box">
-        <h1 style="font-family: 'Pacifico', cursive; color: #7baedb;">Pit Crew Control Panel</h1>
-        <p>Use this link to securely view and download your guest list and messages.</p>
+        <h1>Pit Crew Portal</h1>
+        <p style="margin-bottom: 25px; color: #64748b;">Secure access for event management.</p>
         
-        <a href="https://docs.google.com/spreadsheets/d/1bzQHTuvRDLzYD73Kkj4SpGMR-Uw5aJST3g854t-JQhc/edit?resourcekey=&gid=1203565635#gid=1203565635" target="_blank">Open RSVP Guest List</a>
+        <a href="YOUR_GOOGLE_SHEET_URL" target="_blank" class="admin-btn">
+            <i class="fa-solid fa-file-excel"></i> View RSVPs & Messages
+        </a>
         
-        <p style="margin-top: 30px; font-size: 1.2rem;">To download as Excel: <br>Open the sheet -> Click <strong>File</strong> -> <strong>Download</strong> -> <strong>Microsoft Excel</strong></p>
+        <a href="https://padlet.com/dashboard" target="_blank" class="admin-btn">
+            <i class="fa-solid fa-images"></i> Manage Photo Wall
+        </a>
+
+        <div class="instructions">
+            <p><strong>To download RSVPs:</strong> Open the RSVP link above, click <em>File</em> > <em>Download</em> > <em>Microsoft Excel (.xlsx)</em>.</p>
+            <p style="margin-top: 10px;"><strong>To download Photos:</strong> Open the Photo Wall link, click the three dots (...) on your Padlet, select <em>Export</em>, and choose your preferred format.</p>
+        </div>
     </div>
 </body>
 </html>
