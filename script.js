@@ -1,26 +1,39 @@
-// Function to trigger entrance animations based on which page is active
+// Function to trigger entrance animations
 function animateCards(targetId) {
+    // We are creating a MASTER TIMELINE so we can add deliberate delays.
+    const tl = gsap.timeline();
+
     if (targetId === 'home') {
-        // 1. Cinematic Fade-In for Photo 7 (and its readability overlay)
-        gsap.fromTo(".home-bg-photo, .home-bg-overlay", 
-            { opacity: 0 }, 
-            { opacity: 1, duration: 2, ease: "power2.inOut" }
-        );
+        // Initial delay when the website opens to let the background load.
+        tl.to({}, { duration: 0.5 }); 
         
-        // 2. THE SQUEEZE: Top Card slides down from above
-        gsap.fromTo(".squeeze-top",
+        // 1. Deliberate Squeeze-Top: Photo Banner drops down slowly.
+        // We've increased 'duration' to slow it down.
+        tl.fromTo(".squeeze-top",
             { y: -150, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.2, ease: "back.out(1.2)", delay: 0.3, clearProps: "transform" }
+            { y: 0, opacity: 1, duration: 1.5, ease: "back.out(1.2)", clearProps: "transform" }
         );
         
-        // 3. THE SQUEEZE: Bottom Card slides up from below
-        gsap.fromTo(".squeeze-bottom",
+        // Short pause between elements.
+        tl.to({}, { duration: 0.3 }); 
+        
+        // 2. Deliberate Squeeze-Middle: Title card drops down.
+        tl.fromTo(".squeeze-middle",
+            { y: -150, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.5, ease: "back.out(1.2)", clearProps: "transform" }
+        );
+        
+        // Final pause.
+        tl.to({}, { duration: 0.3 }); 
+        
+        // 3. Deliberate Squeeze-Bottom: Note card rises up.
+        tl.fromTo(".squeeze-bottom",
             { y: 150, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.2, ease: "back.out(1.2)", delay: 0.3, clearProps: "transform" }
+            { y: 0, opacity: 1, duration: 1.5, ease: "back.out(1.2)", clearProps: "transform" }
         );
     } else {
         // Default clean slide-up animation for all other pages
-        gsap.fromTo(`#${targetId} .animate-card`, 
+        tl.fromTo(`#${targetId} .animate-card`, 
             { y: 40, opacity: 0 }, 
             { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: "power2.out", clearProps: "transform" }
         );
@@ -48,8 +61,9 @@ navButtons.forEach(button => {
     });
 });
 
-// Run the cinematic squeeze animation on initial website load
+// Run animation on initial load
 window.addEventListener('load', () => {
+    // On load, we specifically trigger the 'home' animation logic
     animateCards('home');
 });
 
